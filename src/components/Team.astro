@@ -1,0 +1,55 @@
+---
+const teamMembers = [
+  { name: "Maria Rodriguez", role: "CEO & Founder", bio: "With 15+ years in software development, Maria leads our vision and strategy." },
+  { name: "James Wilson", role: "CTO", bio: "James oversees our technical direction and ensures we stay at the cutting edge of technology." },
+  { name: "Sophia Chen", role: "Lead Developer", bio: "Sophia specializes in scalable architecture and leads our development team." },
+  { name: "Robert Kim", role: "UX/UI Director", bio: "Robert ensures our solutions are not just functional but also intuitive and beautiful." },
+  { name: "Aisha Patel", role: "Project Manager", bio: "Aisha keeps our projects on track and ensures seamless client communication." },
+  { name: "Daniel Jackson", role: "DevOps Engineer", bio: "Daniel manages our infrastructure and deployment pipelines for maximum efficiency." },
+  { name: "Emma Thompson", role: "QA Lead", bio: "Emma ensures our solutions meet the highest quality standards before delivery." },
+  { name: "Carlos Mendez", role: "Mobile Development Lead", bio: "Carlos specializes in creating exceptional mobile experiences across platforms." },
+];
+---
+
+<section id="team" class="w-full py-12 md:py-12 lg:py-12">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="text-center mb-12">
+      <div class="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-600 mb-4">
+        Nuestros Expertos
+      </div>
+      <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl text-white">Conose a <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">Nuestro Equipo</span></h2>
+      <p class="mx-auto max-w-[700px] text-gray-300 md:text-xl mt-4">
+        Nuestro diverso equipo de expertos reúne décadas de experiencia en diversas tecnologías e industrias.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {teamMembers.map((member) => (
+        <div class="flex flex-col items-center text-center p-6 space-y-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+          <div class="relative h-32 w-32 overflow-hidden rounded-full">
+            <img src="/placeholder.svg" alt={member.name} class="object-cover w-full h-full" />
+          </div>
+          <div>
+            <h3 class="text-xl font-bold">{member.name}</h3>
+            <p class="text-blue-600 font-medium">{member.role}</p>
+            <p class="text-gray-500 mt-2">{member.bio}</p>
+          </div>
+          <div class="flex space-x-2">
+            <a href="#" class="text-gray-400 hover:text-blue-600">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect width="4" height="12" x="2" y="9"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-blue-600">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+

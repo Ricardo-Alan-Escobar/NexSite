@@ -1,0 +1,34 @@
+---
+const technologies = [
+  "React", "Node.js", "Astro", "AWS", "Laravel", "Google Cloud",
+  "Tailwind", "PostgreSQL", "Docker", "Kubernetes", "TensorFlow", "Flutter"
+];
+---
+
+<section id="technologies" class="w-full py-12 md:py-12 lg:py-12">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="text-center mb-12">
+      <div class="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-600 mb-4">
+        Nuestra pila tecnológica
+      </div>
+      <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl text-white"><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">Tecnologias </span> que usamos</h2>
+      <p class="mx-auto max-w-[700px] text-gray-500 md:text-xl mt-4">
+        Aprovechamos tecnologías de vanguardia para construir soluciones sólidas, escalables y preparadas para el futuro.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
+      {technologies.map((tech) => (
+        <div class="flex flex-col items-center space-y-2">
+          <div class="h-16 w-16 rounded-full bg-blue-100 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-blue-600">
+              <path d="M16 18 22 12 16 6"></path>
+              <path d="M8 6 2 12 8 18"></path>
+            </svg>
+          </div>
+          <span class="font-medium text-white">{tech}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+

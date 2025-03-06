@@ -1,0 +1,142 @@
+---
+// Header.astro
+
+---
+
+<header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+  <div class="container flex h-16 items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 font-bold text-white pl-8 text-xl">
+     Nexsite
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-6">
+      <a 
+        href="/" 
+        class="text-sm font-medium transition-colors text-white hover:text-primary"
+      >
+        Home
+      </a>
+      <a 
+        href="/features" 
+        class="text-sm font-medium transition-colors text-white hover:text-primary"
+      >
+        Features
+      </a>
+      <a 
+        href="/pricing" 
+        class="text-sm font-medium transition-colors text-white hover:text-primary"
+      >
+        Pricing
+      </a>
+      <a 
+        href="/about" 
+        class="text-sm font-medium transition-colors text-white hover:text-primary"
+      >
+        About
+      </a>
+      <a 
+        href="/contact" 
+        class="text-sm font-medium transition-colors text-white hover:text-primary"
+      >
+        Contact
+      </a>
+    </nav>
+
+    <!-- Desktop CTA -->
+    <div class="hidden md:flex items-center gap-4 mr-4">
+      <a href="/login">
+        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  ring-offset-background transition-colors text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2">
+          Contactanos
+        </button>
+      </a>
+     
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button 
+      id="menu-toggle"
+      class="md:hidden p-2 text-white rounded-md hover:bg-accent"
+      aria-label="Toggle menu"
+    >
+      <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+        <line x1="4" x2="20" y1="12" y2="12" />
+        <line x1="4" x2="20" y1="6" y2="6" />
+        <line x1="4" x2="20" y1="18" y2="18" />
+      </svg>
+      <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 hidden">
+        <path d="M18 6 6 18" />
+        <path d="m6 6 12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden bg-white border-t hidden">
+    <div class="container p-5 py-4 flex flex-col gap-4">
+      <nav class="flex flex-col gap-4">
+        <a 
+          href="/" 
+          class="text-sm font-medium transition-colors hover:text-primary"
+        >
+          Home
+        </a>
+        <a 
+          href="/features" 
+          class="text-sm font-medium transition-colors hover:text-primary"
+        >
+          Features
+        </a>
+        <a 
+          href="/pricing" 
+          class="text-sm font-medium transition-colors hover:text-primary"
+        >
+          Pricing
+        </a>
+        <a 
+          href="/about" 
+          class="text-sm font-medium transition-colors hover:text-primary"
+        >
+          About
+        </a>
+        <a 
+          href="/contact" 
+          class="text-sm font-medium transition-colors hover:text-primary"
+        >
+          Contact
+        </a>
+      </nav>
+      <div class="flex flex-col gap-2 mt-2">
+        <a href="/login">
+          <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 w-full ">
+            Contactanos
+          </button>
+        </a>
+       
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Client-side JavaScript for the mobile menu toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+    
+    if (menuToggle && mobileMenu && menuIcon && closeIcon) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        menuIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      });
+    }
+  });
+</script>
+
+
+
+
