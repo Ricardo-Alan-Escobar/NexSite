@@ -1,14 +1,14 @@
 ---
-// Header.astro
+import { Image } from "astro:assets";
+import Img1 from "../assets/Logo.png"
 
 ---
 
 <header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
   <div class="container flex h-16 items-center justify-between">
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-2 font-bold text-white pl-8 text-xl">
-     Nexsite
-    </a>
+    <a href="/" class="flex items-center gap-2">
+      <Image src={Img1} alt="NexSite" class="w-44 h-28" />
 
     <!-- Desktop Navigation -->
     <nav class="hidden md:flex items-center gap-6">
