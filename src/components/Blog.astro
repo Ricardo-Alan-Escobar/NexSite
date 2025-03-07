@@ -1,22 +1,30 @@
 ---
+import { Image } from "astro:assets";
+import Blog1 from "../assets/Blog/Blog1.png";
+import Blog2 from "../assets/Blog/Blog2.png";
+import Blog3 from "../assets/Blog/Blog3.png";
+
 const blogPosts = [
   {
     title: "El futuro de la IA en el desarrollo de software",
     excerpt: "Descubra cómo la inteligencia artificial está transformando la forma en que creamos y mantenemos aplicaciones de software.",
-    date: "June 15, 2025",
-    category: "Technology Trends"
+    date: "Enero 15, 2025",
+    category: "Technology Trends",
+    image: Blog1, // Aquí pasamos el objeto completo
   },
   {
-    title: "El futuro de la IA en el desarrollo de software",
+    title: "Las mejores practicas para tu negocio",
     excerpt: "Aprenda las mejores prácticas para diseñar soluciones en la nube que puedan crecer con las necesidades de su negocio.",
-    date: "June 8, 2025",
-    category: "Cloud Computing"
+    date: "Febrero 8, 2025",
+    category: "Cloud Computing",
+    image: Blog2,
   },
   {
     title: "Prácticas recomendadas de seguridad para aplicaciones web",
     excerpt: "Descubra las medidas de seguridad esenciales para proteger sus aplicaciones web de vulnerabilidades comunes.",
-    date: "May 30, 2025",
-    category: "Cybersecurity"
+    date: "Febrero 30, 2025",
+    category: "Cybersecurity",
+    image: Blog3,
   },
 ];
 ---
@@ -25,9 +33,11 @@ const blogPosts = [
   <div class="container mx-auto px-4 md:px-6">
     <div class="text-center mb-12">
       <div class="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-600 mb-4">
-       Nuestro Blog
+        Nuestro Blog
       </div>
-      <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl text-white">Últimos <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">Conocimientos</span></h2>
+      <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl text-white">
+        Últimos <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">Conocimientos</span>
+      </h2>
       <p class="mx-auto max-w-[700px] text-gray-300 md:text-xl mt-4">
         Manténgase actualizado con las últimas tendencias, tecnologías y mejores prácticas en desarrollo de software.
       </p>
@@ -36,7 +46,7 @@ const blogPosts = [
       {blogPosts.map((post) => (
         <div class="flex flex-col overflow-hidden bg-gray-900 rounded-lg shadow-sm hover:shadow-md transition-shadow">
           <div class="relative h-48 w-full">
-            <img src="/placeholder.svg" alt={post.title} class="object-cover w-full h-full" />
+            <Image src={post.image} alt={post.title} class="object-cover w-full h-full" />
           </div>
           <div class="flex-1 p-6 space-y-2">
             <div class="flex justify-between items-center text-sm text-gray-500">
@@ -46,7 +56,7 @@ const blogPosts = [
             <h3 class="text-xl font-bold text-white">{post.title}</h3>
             <p class="text-gray-300">{post.excerpt}</p>
             <a href="#" class="text-blue-500 hover:underline font-medium inline-flex items-center">
-                Saber más
+              Saber más
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 h-4 w-4">
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
@@ -62,4 +72,3 @@ const blogPosts = [
     </div>
   </div>
 </section>
-
