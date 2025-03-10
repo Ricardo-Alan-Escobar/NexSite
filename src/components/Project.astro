@@ -1,11 +1,19 @@
 ---
+import { Image } from "astro:assets";
+import Proventis from "../assets/Proyectos/Proventis.png";
+import Maquirsa from "../assets/Proyectos/Maquirsa.png";
+import Massey from "../assets/Proyectos/masseyapp.jpeg";
+import Vsilva from "../assets/Proyectos/vsilva.png";
+import Neuuni from "../assets/Proyectos/neuuni.png";
+import Tarjeta from "../assets/Proyectos/Tarjeta.png";
+
 const projects = [
-  { title: "Social Media 'Proventis'", description: "A scalable online marketplace with advanced product filtering, secure payment processing, and inventory management." },
-  { title: "Healthcare App", description: "Revolutionizing patient care with telemedicine features, appointment scheduling, and secure medical records access." },
-  { title: "FinTech Solution", description: "Secure and efficient financial transactions platform with real-time analytics, fraud detection, and multi-currency support." },
-  { title: "Educational Platform", description: "Interactive learning management system with video conferencing, progress tracking, and personalized learning paths." },
-  { title: "IoT Dashboard", description: "Comprehensive monitoring solution for industrial IoT devices with real-time data visualization and predictive maintenance." },
-  { title: "Supply Chain Management", description: "End-to-end logistics tracking system with blockchain verification, inventory forecasting, and supplier management." },
+{ title: "Maquirsa", description: "Desarrollo de pagina para constructora con diversos servicios a nivel nacional.", image: Maquirsa, href: "https://grupomaquirsa.netlify.app" },
+{ title: "Tarjeta Digital", description: "Tarjeta interactiva de presentacion que facilita el contacto en un solo click, ademas de proporcionar informacion directa.", image: Tarjeta, href: "https://tarjetadigitalsandra.netlify.app" },
+{ title: "Vsilva", description: "Paguina para empresa de tecnologia enfocada a soluciones con redes e instalaciones.", image: Vsilva, href: "https://vsilva.netlify.app/" },
+{ title: "Universidad Neuuni", description: "Pagina para alumnos de una universidad dedicada a clases en linea, donde contiene documentacion del uso de la plataforma.", image: Neuuni, href: "https://docs.neuunieverest.com" },
+{ title: "Social Media 'Proventis'", description: "Aplicacion sosial para empresas con seguimiento de ticketsy capacitacion continua ademas del seguimiento de permisos.", image: Proventis, href: "https://github.com/Ricardo-Alan-Escobar/Proventis" },
+{ title: "Sistema gestor de facturas", description: "Aplicacion que convierte archivos xml en masa a archivo Xsl; filtra y hace el conteo de facturas catalogandolas por su CFDI.", image: Massey, href: "https://github.com/Ricardo-Alan-Escobar/GrupoMaquirsa" },
 ];
 ---
 
@@ -15,11 +23,11 @@ const projects = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6">
       {projects.map((project) => (
         <div class="flex bg-gray-800 flex-col items-center text-center p-6 space-y-4 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
-          <img src="/placeholder.svg" alt={project.title} width="100" height="100" class="rounded-full" />
+          <Image src={project.image || "/placeholder.svg"} alt={project.title} class="object-cover w-full h-full" />
           <h3 class="text-xl font-bold text-white">{project.title}</h3>
           <p class="text-gray-300">{project.description}</p>
-          <a href="#" class="inline-flex text-white items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium  hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-            View Case Study
+          <a href={project.href} class="inline-flex text-white items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium  hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+            Ver Demo
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
               <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
