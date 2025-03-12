@@ -15,23 +15,53 @@ const techIcons = [
 ];
 ---
 
-<section id="technologies" class="w-full py-12 md:py-12 lg:py-12">
+<style>
+  /* Animaciones de entrada */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Animación de rebote para los íconos */
+  .tech-icon {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  .tech-icon.show {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Hover en los íconos */
+  .icon-hover:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }
+</style>
+
+<section id="technologies" class="w-full py-12 md:py-12 lg:py-12 fade-in">
   <div class="container mx-auto px-4 md:px-6">
     <div class="text-center mb-12">
       <div class="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-600 mb-4">
         Nuestra pila tecnológica
       </div>
-      <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl text-white">
+      <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl text-white fade-in">
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">Tecnologías </span> que usamos
       </h2>
-      <p class="mx-auto max-w-[700px] text-gray-500 md:text-xl mt-4">
+      <p class="mx-auto max-w-[700px] text-gray-500 md:text-xl mt-4 fade-in">
         Aprovechamos tecnologías de vanguardia para construir soluciones sólidas, escalables y preparadas para el futuro.
       </p>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
-      {techIcons.map((tech) => (
-        <div class="flex flex-col items-center space-y-2">
-          <div class="h-16 w-16 rounded-full bg-blue-100 flex items-center justify-center">
+      {techIcons.map((tech, index) => (
+        <div class="flex flex-col items-center space-y-2 tech-icon" style={`transition-delay: ${index * 100}ms;`}>
+          <div class="h-16 w-16 rounded-full bg-blue-100 flex items-center justify-center icon-hover">
             <img src={tech.icon} alt={tech.name} class="h-10 w-10" />
           </div>
           <span class="font-medium text-white">{tech.name}</span>
@@ -40,3 +70,22 @@ const techIcons = [
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const section = document.querySelector("#technologies");
+    const elements = document.querySelectorAll(".fade-in, .tech-icon");
+
+    if (section) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            elements.forEach(el => el.classList.add("show"));
+          }
+        });
+      }, { threshold: 0.3 });
+
+      observer.observe(section);
+    }
+  });
+</script>

@@ -1,44 +1,81 @@
+<style>
+  .testimonial-card {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
 
- 
- <i class="fa-solid fa-quote-right"></i>
- 
- <section class="py-16 px-6 bg-gray-900">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white">Nuestros <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">Testimonios</span></h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
-          <div class="flex items-center space-x-4 mb-4">
-            <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Juan Pérez" class="w-16 h-16 rounded-full border-2 border-gray-700">
-            <div>
-              <h3 class="text-lg font-semibold text-green-500">Juan Pérez</h3>
-              <p class="text-gray-400 text-sm">CEO de TechCorp</p>
-            </div>
+  .testimonial-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .testimonial-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15);
+  }
+</style>
+
+<section class="py-16 px-6 bg-gray-900">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white">
+      Nuestros <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">Testimonios</span>
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg testimonial-card" data-index="0">
+        <div class="flex items-center space-x-4 mb-4">
+          <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Juan Pérez" class="w-16 h-16 rounded-full border-2 border-gray-700">
+          <div>
+            <h3 class="text-lg font-semibold text-green-500">Juan Pérez</h3>
+            <p class="text-gray-400 text-sm">CEO de TechCorp</p>
           </div>
-          <i class="fa-solid fa-quote-right text-gray-500 fa-4x"></i>
-          <p class="text-gray-300">Este servicio ha sido increíble, superó todas mis expectativas. Lo recomiendo ampliamente.</p>
         </div>
-        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
-          <div class="flex items-center space-x-4 mb-4">
-            <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="María González" class="w-16 h-16 rounded-full border-2 border-gray-700">
-            <div>
-              <h3 class="text-lg font-semibold text-green-500">María González</h3>
-              <p class="text-gray-400 text-sm">Directora de Marketing en Innovate</p>
-            </div>
+        <i class="fa-solid fa-quote-right text-gray-500 fa-4x"></i>
+        <p class="text-gray-300">Este servicio ha sido increíble, superó todas mis expectativas. Lo recomiendo ampliamente.</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg testimonial-card" data-index="1">
+        <div class="flex items-center space-x-4 mb-4">
+          <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="María González" class="w-16 h-16 rounded-full border-2 border-gray-700">
+          <div>
+            <h3 class="text-lg font-semibold text-green-500">María González</h3>
+            <p class="text-gray-400 text-sm">Directora de Marketing en Innovate</p>
           </div>
-          <i class="fa-solid fa-quote-right text-gray-500 fa-4x"></i>
-          <p class="text-gray-300">La atención al detalle y la calidad del servicio son excepcionales. Muy contenta con los resultados.</p>
         </div>
-        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
-          <div class="flex items-center space-x-4 mb-4">
-            <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Carlos Ramírez" class="w-16 h-16 rounded-full border-2 border-gray-700">
-            <div>
-              <h3 class="text-lg font-semibold text-green-500">Carlos Ramírez</h3>
-              <p class="text-gray-400 text-sm">Emprendedor Digital</p>
-            </div>
+        <i class="fa-solid fa-quote-right text-gray-500 fa-4x"></i>
+        <p class="text-gray-300">La atención al detalle y la calidad del servicio son excepcionales. Muy contenta con los resultados.</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg testimonial-card" data-index="2">
+        <div class="flex items-center space-x-4 mb-4">
+          <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Carlos Ramírez" class="w-16 h-16 rounded-full border-2 border-gray-700">
+          <div>
+            <h3 class="text-lg font-semibold text-green-500">Carlos Ramírez</h3>
+            <p class="text-gray-400 text-sm">Emprendedor Digital</p>
           </div>
-          <i class="fa-solid fa-quote-right text-gray-500 fa-4x"></i>
-          <p class="text-gray-300">Una experiencia increíble. Sin duda, volveré a utilizar este servicio en el futuro.</p>
         </div>
+        <i class="fa-solid fa-quote-right text-gray-500 fa-4x"></i>
+        <p class="text-gray-300">Una experiencia increíble. Sin duda, volveré a utilizar este servicio en el futuro.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".testimonial-card");
+
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      cards.forEach((card, index) => {
+        const cardTop = card.getBoundingClientRect().top;
+        if (cardTop < triggerBottom) {
+          setTimeout(() => {
+            card.classList.add("visible");
+          }, index * 200); // Animación en cascada
+        }
+      });
+    };
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll(); // Ejecutar en carga inicial
+  });
+</script>
