@@ -8,32 +8,153 @@ import Neuuni from "../assets/Proyectos/neuuni.png";
 import Tarjeta from "../assets/Proyectos/Tarjeta.png";
 
 const projects = [
-{ title: "Maquirsa", description: "Desarrollo de pagina para constructora con diversos servicios a nivel nacional.", image: Maquirsa, href: "https://grupomaquirsa.netlify.app" },
-{ title: "Tarjeta Digital", description: "Tarjeta interactiva de presentacion que facilita el contacto en un solo click, ademas de proporcionar informacion directa.", image: Tarjeta, href: "https://tarjetadigitalsandra.netlify.app" },
-{ title: "Vsilva", description: "Paguina para empresa de tecnologia enfocada a soluciones con redes e instalaciones.", image: Vsilva, href: "https://vsilva.netlify.app/" },
-{ title: "Universidad Neuuni", description: "Pagina para alumnos de una universidad dedicada a clases en linea, donde contiene documentacion del uso de la plataforma.", image: Neuuni, href: "https://docs.neuunieverest.com" },
-{ title: "Social Media 'Proventis'", description: "Aplicacion sosial para empresas con seguimiento de ticketsy capacitacion continua ademas del seguimiento de permisos.", image: Proventis, href: "https://github.com/Ricardo-Alan-Escobar/Proventis" },
-{ title: "Sistema gestor de facturas", description: "Aplicacion que convierte archivos xml en masa a archivo Xsl; filtra y hace el conteo de facturas catalogandolas por su CFDI.", image: Massey, href: "https://github.com/Ricardo-Alan-Escobar/GrupoMaquirsa" },
+  { title: "Maquirsa", description: "Desarrollo de pagina para constructora con diversos servicios a nivel nacional.", image: Maquirsa, href: "https://grupomaquirsa.netlify.app" },
+  { title: "Tarjeta Digital", description: "Tarjeta interactiva de presentacion que facilita el contacto en un solo click, ademas de proporcionar informacion directa.", image: Tarjeta, href: "https://tarjetadigitalsandra.netlify.app" },
+  { title: "Vsilva", description: "Paguina para empresa de tecnologia enfocada a soluciones con redes e instalaciones.", image: Vsilva, href: "https://vsilva.netlify.app/" },
+  { title: "Universidad Neuuni", description: "Pagina para alumnos de una universidad dedicada a clases en linea, donde contiene documentacion del uso de la plataforma.", image: Neuuni, href: "https://docs.neuunieverest.com" },
+  { title: "Social Media 'Proventis'", description: "Aplicacion sosial para empresas con seguimiento de ticketsy capacitacion continua ademas del seguimiento de permisos.", image: Proventis, href: "https://github.com/Ricardo-Alan-Escobar/Proventis" },
+  { title: "Sistema gestor de facturas", description: "Aplicacion que convierte archivos xml en masa a archivo Xsl; filtra y hace el conteo de facturas catalogandolas por su CFDI.", image: Massey, href: "https://github.com/Ricardo-Alan-Escobar/GrupoMaquirsa" },
 ];
 ---
-
-<section id="Trabajos" class="w-full bg-gray-900 py-16 md:py-16 lg:py-16 ">
+<head>
+  <script type="module" src="/Project.js"></script>
+</head>
+<section id="Trabajos" class="w-full bg-gray-900 py-8 md:py-16 lg:py-16">
   <div class="container mx-auto px-4 md:px-6">
-    <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-white">Nuestros <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">proyectos</span></h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6">
+    <h2 class="text-2xl md:text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-8 md:mb-12 text-white">
+      Nuestros <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">proyectos</span>
+    </h2>
+    
+    <!-- Versión móvil - Carrusel horizontal con indicadores -->
+    <div class="md:hidden relative">
+      <!-- Indicador de deslizamiento -->
+      <div class="flex items-center justify-center mb-3 text-white">
+        <div class="flex items-center bg-blue-600/80 rounded-full px-3 py-1 text-xs">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rotate-90 w-4 h-4 mr-1">
+            <path d="m6 9 6 6 6-6"/>
+          </svg>
+          <span>Desliza para ver más proyectos</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="-rotate-90 w-4 h-4 ml-1">
+            <path d="m6 9 6 6 6-6"/>
+          </svg>
+        </div>
+      </div>
+      
+      <!-- Carrusel -->
+      <div id="projects-carousel-container" class="overflow-x-auto pb-6 -mx-4 px-4 scrollbar-hide relative">
+        <div id="projects-carousel" class="flex space-x-4 projects-carousel">
+          {projects.map((project, index) => (
+            <div class="projects-carousel-item flex-shrink-0 w-[280px] flex flex-col bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-shadow relative" data-index={index}>
+              <!-- Indicador de deslizamiento en la tarjeta -->
+              <div class="absolute -right-1 top-1/2 -translate-y-1/2 w-2 h-16 bg-blue-100 rounded-l-md opacity-30 z-10"></div>
+              
+              <div class="relative h-40 w-full overflow-hidden rounded-t-lg">
+                <Image src={project.image || "/placeholder.svg"} alt={project.title} class="object-cover w-full h-full" />
+              </div>
+              
+              <div class="flex-1 p-4 flex flex-col items-center text-center space-y-2">
+                <h3 class="text-lg font-bold text-white line-clamp-1">{project.title}</h3>
+                <p class="text-gray-300 text-sm line-clamp-2">{project.description}</p>
+                <a href={project.href} class="inline-flex text-white items-center justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 mt-auto">
+                  Ver Demo
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Indicadores de puntos interactivos -->
+      <div id="projects-carousel-dots" class="flex justify-center space-x-1 mt-2">
+        {projects.map((_, index) => (
+          <button 
+            class={`projects-carousel-dot h-1.5 rounded-full ${index === 0 ? 'w-4 bg-blue-500 active' : 'w-1.5 bg-gray-400'}`}
+            data-index={index}
+            aria-label={`Ver proyecto ${index + 1}`}
+          ></button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Versión tablet y desktop - Grid -->
+    <div class="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {projects.map((project) => (
-        <div class="flex bg-gray-800 flex-col items-center text-center p-6 space-y-4 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
-          <Image src={project.image || "/placeholder.svg"} alt={project.title} class="object-cover w-full h-full" />
-          <h3 class="text-xl font-bold text-white">{project.title}</h3>
-          <p class="text-gray-300">{project.description}</p>
-          <a href={project.href} class="inline-flex text-white items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium  hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-            Ver Demo
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </a>
+        <div class="flex bg-gray-800 flex-col items-center text-center overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-full h-48 overflow-hidden">
+            <Image src={project.image || "/placeholder.svg"} alt={project.title} class="object-cover w-full h-full" />
+          </div>
+          <div class="p-6 space-y-4 flex flex-col flex-1">
+            <h3 class="text-xl font-bold text-white">{project.title}</h3>
+            <p class="text-gray-300">{project.description}</p>
+            <a href={project.href} class="inline-flex text-white items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 mt-auto">
+              Ver Demo
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  /* Ocultar la barra de desplazamiento pero mantener la funcionalidad */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+  
+  /* Animación sutil para indicar deslizamiento */
+  @keyframes slideHint {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-20px); }
+    20% { transform: translateX(0); }
+    100% { transform: translateX(0); }
+  }
+  
+  .projects-carousel {
+    animation: slideHint 4s ease-in-out 1s;
+    scroll-behavior: smooth;
+  }
+  
+  /* Efecto de brillo en el indicador lateral */
+  @keyframes glowIndicator {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+    100% { opacity: 0.3; }
+  }
+  
+  .projects-carousel > div > .absolute {
+    animation: glowIndicator 2s infinite;
+  }
+  
+  /* Transición suave para los puntos indicadores */
+  .projects-carousel-dot {
+    transition: all 0.3s ease;
+  }
+  
+  /* Asegurar que el botón "Ver Demo" esté siempre en la parte inferior */
+  .projects-carousel-item > div:last-child {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  .projects-carousel-item a {
+    margin-top: auto;
+  }
+</style>
+
+<script>
+  
+</script>
+
