@@ -45,8 +45,15 @@ const techIcons = [
   }
 </style>
 
-<section id="technologies" class="w-full py-12 md:py-12 lg:py-12 fade-in">
-  <div class="container mx-auto px-4 md:px-6">
+<section id="technologies" class="w-full py-12 md:py-12 lg:py-12 fade-in relative overflow-hidden">
+  <!-- Fondo con gradiente -->
+  <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-950 opacity-80"></div>
+  
+  <!-- Efectos de iluminación -->
+  <div class="absolute top-20 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl opacity-20"></div>
+  <div class="absolute bottom-20 right-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl opacity-20"></div>
+  
+  <div class="container mx-auto px-4 md:px-6 relative z-10">
     <div class="text-center mb-12">
       <div class="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-600 mb-4">
         Nuestra pila tecnológica
@@ -62,7 +69,7 @@ const techIcons = [
       {techIcons.map((tech, index) => (
         <div class="flex flex-col items-center space-y-2 tech-icon" style={`transition-delay: ${index * 100}ms;`}>
           <div class="h-16 w-16 rounded-full bg-blue-100 flex items-center justify-center icon-hover">
-            <img src={tech.icon} alt={tech.name} class="h-10 w-10" />
+            <img src={tech.icon || "/placeholder.svg"} alt={tech.name} class="h-10 w-10" />
           </div>
           <span class="font-medium text-white">{tech.name}</span>
         </div>
@@ -89,3 +96,4 @@ const techIcons = [
     }
   });
 </script>
+

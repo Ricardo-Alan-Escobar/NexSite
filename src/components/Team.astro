@@ -3,27 +3,34 @@ const teamMembers = [
   { name: "Ricardo Escobar", role: "CEO & Founder", bio: "Ingeniero en sistemas conputacionales especializado en el desarrollo de software." },
   { name: "Josue salvador", role: "Dev. Front-End", bio: "Ingeniero en sistemas con especialidad en desarrollo web." },
   { name: "Hugo Baena", role: "Dev. Back-End", bio: "Desarrollador web con experencia en laravel y base de datos." },
-  { name: "Frida Escobar", role: "rrrrr", bio: "Robert ensures our solutions are not just functional but also intuitive and beautiful." },
-  { name: "Emmanuel Rosales", role: "Project Manager", bio: "Aisha keeps our projects on track and ensures seamless client communication." },
-  { name: "", role: "DevOps Engineer", bio: "Daniel manages our infrastructure and deployment pipelines for maximum efficiency." },
-  { name: "Emma Thompson", role: "QA Lead", bio: "Emma ensures our solutions meet the highest quality standards before delivery." },
-  { name: "Carlos Mendez", role: "Mobile Development Lead", bio: "Carlos specializes in creating exceptional mobile experiences across platforms." },
+  { name: "Frida Escobar", role: "Marketing - Diseño UX/IU", bio: "Licenciada en Mercadotecnia Internacional con experiencia en marketing y diseño." },
+  { name: "Emmanuel Rosales", role: "Ejecutivo de ventas / Marketing", bio: "Licenciado en Marketing con experiencia en ventas." },
+  { name: "Jose Perez", role: "Ejecutivo de ventas", bio: "Ing. en ventas con experiencia en atención al cliente" },
+  { name: "Jovani Valerio", role: "Diseñador Grafico / Ejecutivo de ventas", bio: "Licenciado en diseño grafico con experiencia en diseño de marcas y ventas." },
 ];
 ---
 
 <head>
   <script type="module" src="/Team.js"></script>
 </head>
-<section id="team" class="w-full py-8 md:py-12 lg:py-12">
-  <div class="container mx-auto px-4 md:px-6">
-    <div class="text-center mb-8 md:mb-12">
-      <div class="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-600 mb-4">
+
+<section id="team" class="w-full py-12 md:py-16 lg:py-20 bg-gray-950 relative overflow-hidden">
+  <!-- Efectos de fondo -->
+  <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-950 opacity-80"></div>
+  
+  <!-- Efectos de iluminación -->
+  <div class="absolute top-20 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl opacity-20"></div>
+  <div class="absolute bottom-20 right-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl opacity-20"></div>
+  
+  <div class="container mx-auto px-4 md:px-6 relative z-10">
+    <div class="text-center mb-12">
+      <div class="inline-block rounded-lg bg-blue-900/30 px-3 py-1 text-sm text-blue-400 mb-4 border border-blue-800/30">
         Nuestros Expertos
       </div>
       <h2 class="text-2xl md:text-3xl font-bold tracking-tighter sm:text-5xl text-white">
-        Conose a <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">Nuestro Equipo</span>
+        Conoce a <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-300">Nuestro Equipo</span>
       </h2>
-      <p class="mx-auto max-w-[700px] text-gray-300 text-sm md:text-xl mt-2 md:mt-4">
+      <p class="mx-auto max-w-[700px] text-gray-300 text-sm md:text-xl mt-4">
         Nuestro diverso equipo de expertos reúne décadas de experiencia en diversas tecnologías e industrias.
       </p>
     </div>
@@ -32,7 +39,7 @@ const teamMembers = [
     <div class="md:hidden relative">
       <!-- Indicador de deslizamiento -->
       <div class="flex items-center justify-center mb-3 text-white">
-        <div class="flex items-center bg-blue-600/80 rounded-full px-3 py-1 text-xs">
+        <div class="flex items-center bg-blue-600/30 border border-blue-500/30 rounded-full px-3 py-1 text-xs backdrop-blur-sm">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rotate-90 w-4 h-4 mr-1">
             <path d="m6 9 6 6 6-6"/>
           </svg>
@@ -47,21 +54,23 @@ const teamMembers = [
       <div class="overflow-x-auto pb-6 -mx-4 px-4 scrollbar-hide relative">
         <div class="flex space-x-4" style="min-width: max-content;">
           {teamMembers.map((member, index) => (
-            <div class="flex flex-col items-center text-center p-4 space-y-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow relative" style="width: 200px;">
+            <div class="flex flex-col items-center text-center p-4 space-y-2 bg-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-lg shadow-lg hover:shadow-blue-900/20 transition-all duration-300 relative" style="width: 200px;">
               <!-- Indicador de deslizamiento en la tarjeta -->
-              <div class="absolute -right-1 top-1/2 -translate-y-1/2 w-2 h-8 bg-blue-100 rounded-l-md opacity-30"></div>
+              <div class="absolute -right-1 top-1/2 -translate-y-1/2 w-2 h-8 bg-blue-500/20 rounded-l-md"></div>
               
-              <div class="relative h-16 w-16 overflow-hidden rounded-full">
-                <img src="/placeholder.svg" alt={member.name} class="object-cover w-full h-full" />
+              <div class="relative h-16 w-16 overflow-hidden rounded-full bg-gradient-to-br from-blue-500 to-blue-700 p-0.5">
+                <div class="rounded-full overflow-hidden h-full flex justify-center items-center w-full bg-gray-800">
+                  <i class="fa-solid fa-user-tie text-white text-4xl"></i>
+                </div>
               </div>
               <div class="w-full">
-                <h3 class="text-base font-bold truncate">{member.name}</h3>
-                <p class="text-blue-600 text-xs font-medium">{member.role}</p>
+                <h3 class="text-base font-bold truncate text-white">{member.name}</h3>
+                <p class="text-blue-400 text-xs font-medium">{member.role}</p>
                 
                 <div class="relative bio-container" data-index={index}>
-                  <p class="text-gray-500 text-xs mt-1 bio-text line-clamp-2">{member.bio}</p>
+                  <p class="text-gray-400 text-xs mt-1 bio-text line-clamp-2">{member.bio}</p>
                   <button 
-                    class="text-blue-500 text-xs flex items-center mx-auto mt-1 bio-toggle"
+                    class="text-blue-400 text-xs flex items-center mx-auto mt-1 bio-toggle"
                     data-index={index}
                   >
                     <span class="toggle-text">Más</span>
@@ -72,14 +81,14 @@ const teamMembers = [
                 </div>
               </div>
               <div class="flex space-x-2">
-                <a href="#" class="text-gray-400 hover:text-blue-600">
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                     <rect width="4" height="12" x="2" y="9"></rect>
                     <circle cx="4" cy="4" r="2"></circle>
                   </svg>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-blue-600">
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
                   </svg>
@@ -88,15 +97,13 @@ const teamMembers = [
             </div>
           ))}
         </div>
-        
-       
       </div>
       
       <!-- Indicadores de puntos -->
       <div class="flex justify-center space-x-1 mt-2">
         {teamMembers.slice(0, Math.min(teamMembers.length, 5)).map((_, index) => (
           <div 
-            class={`h-1.5 rounded-full ${index === 0 ? 'w-4 bg-blue-500' : 'w-1.5 bg-gray-400'}`}
+            class={`h-1.5 rounded-full ${index === 0 ? 'w-4 bg-blue-500' : 'w-1.5 bg-gray-600'}`}
           ></div>
         ))}
         {teamMembers.length > 5 && <div class="text-gray-400 text-xs">...</div>}
@@ -106,31 +113,52 @@ const teamMembers = [
     <!-- Versión tablet y desktop - Grid -->
     <div class="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {teamMembers.map((member) => (
-        <div class="flex flex-col items-center text-center p-6 space-y-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-          <div class="relative h-20 w-20 md:h-24 md:w-24 lg:h-28 lg:w-28 overflow-hidden rounded-full">
-            <img src="/placeholder.svg" alt={member.name} class="object-cover w-full h-full" />
+        <div class="group flex flex-col items-center text-center p-6 space-y-4 bg-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-lg shadow-lg hover:shadow-blue-900/20 transition-all duration-300 relative overflow-hidden">
+        
+          <div class="absolute inset-0 bg-gradient-to-b from-blue-600/5 to-blue-900/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        
+          <div class="absolute -right-12 -top-12 w-24 h-24 bg-blue-500/10 rounded-full"></div>
+          
+          <div class="relative h-20 w-20 overflow-hidden rounded-full bg-gradient-to-br from-blue-500 to-blue-700 p-0.5">
+            <div class="rounded-full overflow-hidden h-full w-full flex justify-center items-center bg-gray-800">
+              <i class="fa-solid fa-user-tie text-white text-5xl"></i>
+            </div>
           </div>
-          <div>
-            <h3 class="text-xl font-bold">{member.name}</h3>
-            <p class="text-blue-600 font-medium">{member.role}</p>
-            <p class="text-gray-500 mt-2">{member.bio}</p>
+          
+          <div class="relative z-10">
+            <h3 class="text-xl font-bold text-white">{member.name}</h3>
+            <p class="text-blue-400 font-medium">{member.role}</p>
+            <p class="text-gray-400 mt-2">{member.bio}</p>
           </div>
-          <div class="flex space-x-2">
-            <a href="#" class="text-gray-400 hover:text-blue-600">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          
+          <div class="flex space-x-3 relative z-10">
+            <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                 <rect width="4" height="12" x="2" y="9"></rect>
                 <circle cx="4" cy="4" r="2"></circle>
               </svg>
             </a>
-            <a href="#" class="text-gray-400 hover:text-blue-600">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
               </svg>
             </a>
           </div>
         </div>
       ))}
+    </div>
+    
+    <!-- Elemento decorativo inferior -->
+    <div class="mt-16 flex justify-center">
+      <div class="h-1 w-16 bg-gradient-to-r from-blue-500/0 via-blue-500 to-blue-500/0 rounded-full"></div>
     </div>
   </div>
 </section>
@@ -158,5 +186,4 @@ const teamMembers = [
     animation: slideHint 4s ease-in-out 1s;
   }
 </style>
-
 
