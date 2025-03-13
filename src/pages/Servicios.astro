@@ -17,7 +17,8 @@ const services = [
       "Diseño UI/UX responsivo y accesible",
       "Optimización de rendimiento y SEO"
     ],
-    caseStudy: "Ayudamos a una startup de fintech a aumentar su conversión en un 45% con una nueva plataforma web optimizada."
+    caseStudy: "Ayudamos a una startup de fintech a aumentar su conversión en un 45% con una nueva plataforma web optimizada.",
+    image: "https://web30india.com/wp-content/uploads/2022/07/Get-the-Most-Fancied-Web-Development-Services-min-scaled-1.png"
   },
   { 
     id: "desarrollo-movil",
@@ -31,6 +32,8 @@ const services = [
       "Publicación y mantenimiento en App Store y Google Play"
     ],
     caseStudy: "Desarrollamos una app de delivery que ha sido descargada más de 100,000 veces con una calificación promedio de 4.8 estrellas."
+  ,
+    image: "https://cdn-icons-png.flaticon.com/512/8296/8296971.png"
   },
   { 
     id: "soluciones-nube",
@@ -44,6 +47,8 @@ const services = [
       "Estrategias de seguridad y cumplimiento"
     ],
     caseStudy: "Redujimos los costos de infraestructura de un cliente en un 35% mientras mejoramos la disponibilidad al 99.99%."
+  ,
+    image: "https://datatecnologia.com.co/wp-content/uploads/data-tecnologia-soluciones-en-la-nube-img-1.webp"
   },
   { 
     id: "software-personalizado",
@@ -57,6 +62,8 @@ const services = [
       "Soporte y mantenimiento continuo"
     ],
     caseStudy: "Desarrollamos un sistema de gestión personalizado que aumentó la eficiencia operativa de un cliente en un 60%."
+  ,
+    image: "https://theseersystems.com/wp-content/uploads/2020/01/software-banner-1.jpg"
   },
   { 
     id: "api-integracion",
@@ -70,6 +77,8 @@ const services = [
       "Monitoreo y análisis de rendimiento"
     ],
     caseStudy: "Integramos 12 sistemas diferentes para un cliente del sector financiero, reduciendo el tiempo de procesamiento de datos en un 75%."
+   ,
+    image: "https://intelectalab.com/wp-content/uploads/2022/05/apisimple.jpg"
   },
   { 
     id: "ai-ml",
@@ -83,6 +92,8 @@ const services = [
       "Análisis predictivo y recomendaciones"
     ],
     caseStudy: "Implementamos un sistema de recomendación que aumentó las ventas cruzadas de un cliente de e-commerce en un 28%."
+ ,
+    image: "https://th.bing.com/th/id/OIP.m2WhDZrTahD9E4cG9UA1GgHaE7?rs=1&pid=ImgDetMain"
   },
 ];
 ---
@@ -133,12 +144,12 @@ const services = [
           data-content={service.id}
         >
           <div class="grid md:grid-cols-2 gap-8 items-center">
-            <!-- Información del servicio -->
+           
             <div class="order-2 md:order-1">
               <h2 class="text-3xl font-bold mb-4 text-white">{service.title}</h2>
               <p class="text-gray-400 mb-6 text-lg">{service.description}</p>
               
-              <!-- Características -->
+           
               <div class="bg-gray-800/50 rounded-xl p-6 mb-6">
                 <h3 class="text-xl font-semibold mb-4 text-white">Características principales</h3>
                 <ul class="space-y-3">
@@ -154,7 +165,7 @@ const services = [
                 </ul>
               </div>
               
-              <!-- Caso de éxito -->
+            
               <div class="bg-gradient-to-r from-blue-900/40 to-blue-800/40 border border-blue-700/30 rounded-lg overflow-hidden">
                 <div class="p-5">
                   <h4 class="text-white text-xl font-semibold">Caso de éxito</h4>
@@ -175,7 +186,7 @@ const services = [
               </div>
             </div>
             
-            <!-- Imagen/Icono del servicio -->
+    
             <div class="order-1 md:order-2 flex justify-center">
               <div class="relative">
                 <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full blur-3xl opacity-20"></div>
@@ -231,8 +242,8 @@ const services = [
                     )}
                   </div>
                   <div class="aspect-video w-full max-w-md bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg flex items-center justify-center p-6">
-                    <img 
-                      src={`https://placehold.co/500x300/111827/FFFFFF?text=${encodeURIComponent(service.title)}`}
+                    <img
+                      src={service.image || "/placeholder.svg"}
                       alt={service.title} 
                       class="rounded-md max-w-full h-auto"
                     />
