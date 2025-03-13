@@ -1,11 +1,267 @@
 ---
-import Layout from "../layouts/Layout.astro"
-import Header from "../components/Header.astro"
-import Footer from "../components/Footer.astro"
----
+// Importar el layout base
+import Layout from "../layouts/Layout.astro";
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
-<Layout title="Servicios">
+
+const services = [
+  { 
+    id: "web-development",
+    icon: "laptop", 
+    title: "Web Development", 
+    description: "Creamos aplicaciones web dinámicas y con capacidad de respuesta utilizando los últimos marcos y tecnologías. Desde sitios web sencillos hasta plataformas web complejas, ofrecemos soluciones que atraen a los usuarios y generan resultados.",
+    features: [
+      "Desarrollo frontend con React, Vue y Angular",
+      "Desarrollo backend con Node.js, Python y PHP",
+      "Diseño UI/UX responsivo y accesible",
+      "Optimización de rendimiento y SEO"
+    ],
+    caseStudy: "Ayudamos a una startup de fintech a aumentar su conversión en un 45% con una nueva plataforma web optimizada."
+  },
+  { 
+    id: "desarrollo-movil",
+    icon: "smartphone", 
+    title: "Desarrollo Móvil", 
+    description: "Desarrollamos aplicaciones móviles nativas y multiplataforma que brindan una experiencia de usuario excepcional en dispositivos iOS y Android. Creamos aplicaciones móviles que se destacan en un mercado competitivo.",
+    features: [
+      "Desarrollo nativo para iOS y Android",
+      "Soluciones multiplataforma con React Native y Flutter",
+      "Integración con APIs y servicios en la nube",
+      "Publicación y mantenimiento en App Store y Google Play"
+    ],
+    caseStudy: "Desarrollamos una app de delivery que ha sido descargada más de 100,000 veces con una calificación promedio de 4.8 estrellas."
+  },
+  { 
+    id: "soluciones-nube",
+    icon: "globe", 
+    title: "Soluciones en la nube", 
+    description: "Infraestructura y servicios en la nube escalables y seguros diseñados para optimizar el rendimiento y reducir los costos. Te ayudamos a aprovechar todo el potencial de la computación en la nube.",
+    features: [
+      "Arquitectura de soluciones en AWS, Azure y Google Cloud",
+      "Implementación de infraestructura como código (IaC)",
+      "Optimización de costos y rendimiento",
+      "Estrategias de seguridad y cumplimiento"
+    ],
+    caseStudy: "Redujimos los costos de infraestructura de un cliente en un 35% mientras mejoramos la disponibilidad al 99.99%."
+  },
+  { 
+    id: "software-personalizado",
+    icon: "code", 
+    title: "Desarrollo de software personalizado", 
+    description: "Soluciones de software a medida diseñadas para abordar los desafíos y requisitos específicos de su negocio. Desarrollamos software que crece con su negocio.",
+    features: [
+      "Análisis de requisitos y diseño de arquitectura",
+      "Desarrollo ágil con entregas incrementales",
+      "Pruebas automatizadas y control de calidad",
+      "Soporte y mantenimiento continuo"
+    ],
+    caseStudy: "Desarrollamos un sistema de gestión personalizado que aumentó la eficiencia operativa de un cliente en un 60%."
+  },
+  { 
+    id: "api-integracion",
+    icon: "git-branch", 
+    title: "Desarrollo e integración de API", 
+    description: "Creación de API robustas e integración perfecta de servicios de terceros para ampliar la funcionalidad de su aplicación y conectarse con sus sistemas existentes.",
+    features: [
+      "Diseño de APIs RESTful y GraphQL",
+      "Documentación automática con Swagger/OpenAPI",
+      "Integración con servicios de terceros",
+      "Monitoreo y análisis de rendimiento"
+    ],
+    caseStudy: "Integramos 12 sistemas diferentes para un cliente del sector financiero, reduciendo el tiempo de procesamiento de datos en un 75%."
+  },
+  { 
+    id: "ai-ml",
+    icon: "cpu", 
+    title: "Inteligencia artificial y aprendizaje automático", 
+    description: "Implementar soluciones inteligentes que analicen datos, aprendan patrones y realicen predicciones para brindarle a su empresa una ventaja competitiva en el panorama digital.",
+    features: [
+      "Modelos de machine learning personalizados",
+      "Procesamiento de lenguaje natural (NLP)",
+      "Visión por computadora y reconocimiento de imágenes",
+      "Análisis predictivo y recomendaciones"
+    ],
+    caseStudy: "Implementamos un sistema de recomendación que aumentó las ventas cruzadas de un cliente de e-commerce en un 28%."
+  },
+];
+---
+<head>
+    <meta charset="UTF-8" />
+    <script type="module" src="/Servicios.js"></script>
+  </head>
+
+<Layout title="Nuestros Servicios">
     <Header />
- 
-            <Footer/>
+    
+    <!-- Contenido de la página -->
+  <div class="bg-gradient-to-b from-gray-900 to-gray-950 min-h-screen">
+    <div class="container mx-auto px-4 py-16">
+      <!-- Encabezado -->
+      <div class="text-center mb-16">
+        <h1 class="text-4xl text-white md:text-6xl font-bold mb-4">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-300">Nuestros</span> Servicios
+        </h1>
+        <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+          Ofrecemos soluciones tecnológicas completas para ayudar a su empresa a prosperar en la era digital.
+          Explore nuestros servicios especializados a continuación.
+        </p>
+      </div>
+
+      <!-- Tabs de navegación -->
+      <div class="mb-8">
+        <div class="flex justify-center overflow-x-auto py-2">
+          <div class="inline-flex bg-gray-800/50 rounded-lg p-1">
+            {services.map((service, index) => (
+              <button 
+                id={`tab-${service.id}`}
+                class={`px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 whitespace-nowrap ${index === 0 ? 'bg-blue-600 text-white' : 'text-gray-300 hover:text-white hover:bg-gray-700/50'}`}
+                data-tab={service.id}
+              >
+                {service.title.split(' ')[0]}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Contenido de los servicios -->
+      {services.map((service, index) => (
+        <div 
+          id={`content-${service.id}`} 
+          class={`tab-content transition-all duration-300 ${index === 0 ? 'block' : 'hidden'}`}
+          data-content={service.id}
+        >
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <!-- Información del servicio -->
+            <div class="order-2 md:order-1">
+              <h2 class="text-3xl font-bold mb-4 text-white">{service.title}</h2>
+              <p class="text-gray-400 mb-6 text-lg">{service.description}</p>
+              
+              <!-- Características -->
+              <div class="bg-gray-800/50 rounded-xl p-6 mb-6">
+                <h3 class="text-xl font-semibold mb-4 text-white">Características principales</h3>
+                <ul class="space-y-3">
+                  {service.features.map((feature) => (
+                    <li class="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                      </svg>
+                      <span class="text-gray-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <!-- Caso de éxito -->
+              <div class="bg-gradient-to-r from-blue-900/40 to-blue-800/40 border border-blue-700/30 rounded-lg overflow-hidden">
+                <div class="p-5">
+                  <h4 class="text-white text-xl font-semibold">Caso de éxito</h4>
+                  <p class="text-gray-400 text-sm">Resultados reales para nuestros clientes</p>
+                </div>
+                <div class="px-5 pb-3 text-gray-300">
+                  {service.caseStudy}
+                </div>
+                <div class="p-5 pt-2 border-t border-blue-700/30">
+                  <a href="https://api.whatsapp.com/send?phone=5214445583374&text=Buen%20d%C3%ADa%2C%20%C2%BFMe%20podr%C3%ADa%20dar%20m%C3%A1s%20informaci%C3%B3n%3F%20" class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors">
+                    Solicitar consulta 
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Imagen/Icono del servicio -->
+            <div class="order-1 md:order-2 flex justify-center">
+              <div class="relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full blur-3xl opacity-20"></div>
+                <div class="relative bg-gray-800 rounded-2xl p-8 border border-gray-700 shadow-xl">
+                  <div class="w-20 h-20 rounded-full bg-gray-700 flex items-center justify-center mb-6 mx-auto">
+                   
+                    {service.icon === "laptop" && (
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="2" y1="20" x2="22" y2="20"></line>
+                      </svg>
+                    )}
+                    {service.icon === "smartphone" && (
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                        <line x1="12" y1="18" x2="12" y2="18"></line>
+                      </svg>
+                    )}
+                    {service.icon === "globe" && (
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                      </svg>
+                    )}
+                    {service.icon === "code" && (
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                      </svg>
+                    )}
+                    {service.icon === "git-branch" && (
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="6" y1="3" x2="6" y2="15"></line>
+                        <circle cx="18" cy="6" r="3"></circle>
+                        <circle cx="6" cy="18" r="3"></circle>
+                        <path d="M18 9a9 9 0 0 1-9 9"></path>
+                      </svg>
+                    )}
+                    {service.icon === "cpu" && (
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                        <rect x="9" y="9" width="6" height="6"></rect>
+                        <line x1="9" y1="1" x2="9" y2="4"></line>
+                        <line x1="15" y1="1" x2="15" y2="4"></line>
+                        <line x1="9" y1="20" x2="9" y2="23"></line>
+                        <line x1="15" y1="20" x2="15" y2="23"></line>
+                        <line x1="20" y1="9" x2="23" y2="9"></line>
+                        <line x1="20" y1="14" x2="23" y2="14"></line>
+                        <line x1="1" y1="9" x2="4" y2="9"></line>
+                        <line x1="1" y1="14" x2="4" y2="14"></line>
+                      </svg>
+                    )}
+                  </div>
+                  <div class="aspect-video w-full max-w-md bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg flex items-center justify-center p-6">
+                    <img 
+                      src={`https://placehold.co/500x300/111827/FFFFFF?text=${encodeURIComponent(service.title)}`}
+                      alt={service.title} 
+                      class="rounded-md max-w-full h-auto"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+
+      <!-- Sección de llamada a la acción -->
+      <div class="mt-20 text-center">
+        <h2 class="text-2xl md:text-4xl font-bold mb-6 text-white">¿Listo para transformar su negocio?</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto mb-8">
+          Nuestro equipo de expertos está listo para ayudarle a alcanzar sus objetivos tecnológicos.
+          Contáctenos hoy para una consulta gratuita.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/#Contactanos" class="inline-flex justify-center items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors text-lg font-medium">
+            Solicitar presupuesto
+          </a>
+          <a href="/#Trabajos" class="inline-flex justify-center items-center px-6 py-3 border border-blue-600 text-blue-400 hover:bg-blue-900/20 rounded-md transition-colors text-lg font-medium">
+            Ver portafolio
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <Footer />
 </Layout>
