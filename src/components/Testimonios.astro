@@ -1,3 +1,8 @@
+---
+import Jose from "../assets/Vendedores/Jose.jpeg"
+import { Image } from "astro:assets";
+---
+
 <style>
   .testimonial-card {
     opacity: 0;
@@ -24,7 +29,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="bg-gray-800 p-6 rounded-2xl shadow-lg testimonial-card" data-index="0">
         <div class="flex items-center space-x-4 mb-4">
-          <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Juan Pérez" class="w-16 h-16 rounded-full border-2 border-gray-700">
+          <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Jose Pérez" class="w-16 h-16 rounded-full border-2 border-gray-700">
           <div>
             <h3 class="text-lg font-semibold text-green-500">Litsy Castillo</h3>
             <p class="text-gray-400 text-sm">CEO de TechCorp</p>
@@ -46,7 +51,7 @@
       </div>
       <div class="bg-gray-800 p-6 rounded-2xl shadow-lg testimonial-card" data-index="2">
         <div class="flex items-center space-x-4 mb-4">
-          <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Carlos Ramírez" class="w-16 h-16 rounded-full border-2 border-gray-700">
+          <img src={Jose.src} alt="Carlos Ramírez" class="w-16 h-16 rounded-full border-2 border-gray-700">
           <div>
             <h3 class="text-lg font-semibold text-green-500">Daniel Sanchez</h3>
             <p class="text-gray-400 text-sm">Emprendedor Digital</p>
