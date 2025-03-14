@@ -1,0 +1,116 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+---
+<head>
+    <meta charset="UTF-8">
+    <script type="module" src="/Ventas.js"></script>
+  </head>
+  <Layout title="Dashboard de ventas">
+    <Header/>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Incluir Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Incluir Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="flex min-h-screen p-10 mt-10 w-full flex-col bg-gradient-to-br from-indigo-50 to-purple-50  md:p-8">
+  <header class="mb-8 flex flex-col items-center justify-between gap-4 md:flex-row">
+    <div class="mt-8 px-8">
+      <h1 class="text-3xl font-bold tracking-tight text-white md:text-4xl">Dashboard de Ventas</h1>
+      <p class="text-gray-300">Compite y alcanza tus metas semanales</p>
+    </div>
+    <div class="w-full md:w-auto">
+      <div class="hidden w-full grid-cols-2 md:w-[400px] bg-white-100 rounded-lg p-1">
+        <button id="semana-actual-tab" class="py-2 px-4 rounded-lg bg-white shadow-sm">Semana Actual</button>
+        <button id="semana-anterior-tab" class="py-2 px-4 rounded-lg">Semana Anterior</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="grid px-8 gap-6 md:grid-cols-2 lg:grid-cols-4">
+    <!-- Total de Ventas -->
+    <div class="bg-gray-800 shadow-md rounded-lg overflow-hidden">
+      <div class="p-4 pb-2">
+        <h2 class="text-lg font-medium text-white">Total de Ventas</h2>
+        <p class="text-sm text-gray-400">Progreso del equipo</p>
+      </div>
+      <div class="p-4">
+        <div id="total-sales" class="text-3xl font-bold text-indigo-400">0</div>
+        <div class="mt-2 h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+          <div id="team-progress-bar" class="h-full bg-indigo-400 rounded-full" style="width: 0%"></div>
+        </div>
+        <p id="team-progress-text" class="mt-2 text-xs text-gray-100">
+          0% de la meta (0/0)
+        </p>
+      </div>
+    </div>
+    
+    <!-- Líder de Ventas -->
+    <div class="bg-gray-800 text-white shadow-md rounded-lg overflow-hidden">
+      <div class="p-4 pb-2">
+        <h2 class="text-lg font-medium text-white ">Líder de Ventas</h2>
+        <p class="text-sm text-gray-400">Mejor vendedor</p>
+      </div>
+      <div class="p-4">
+        <div class="flex items-center gap-4">
+          <div class="relative">
+            <div class="h-12 w-12 overflow-hidden rounded-full bg-gradient-to-r from-amber-200 to-yellow-400">
+              <img id="top-seller-avatar" src="/placeholder.svg?height=40&width=40" alt="Líder" class="h-full w-full object-cover">
+            </div>
+            <div class="absolute -top-3 -right-2 h-5 w-5 text-yellow-400">
+              <i class="fas fa-crown"></i>
+            </div>
+          </div>
+          <div>
+            <div id="top-seller-name" class="font-medium">-</div>
+            <div id="top-seller-sales" class="text-sm text-gray-300">0 ventas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Meta Semanal -->
+    <div class="bg-gray-800 shadow-md rounded-lg overflow-hidden">
+      <div class="p-4 pb-2">
+        <h2 class="text-lg font-medium text-white">Meta Semanal</h2>
+        <p class="text-sm text-gray-400">Ventas por vendedor</p>
+      </div>
+      <div class="p-4">
+        <div class="text-3xl font-bold text-indigo-400">5</div>
+        <div class="mt-2 flex items-center gap-2">
+          <i class="fas fa-chart-line text-green-500"></i>
+          <span class="text-sm text-green-400">Meta establecida</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Vendedores -->
+    <div class="bg-gray-800 shadow-md rounded-lg overflow-hidden">
+      <div class="p-4 pb-2">
+        <h2 class="text-lg font-medium text-white">Vendedores</h2>
+        <p class="text-sm text-gray-400">Equipo de ventas</p>
+      </div>
+      <div class="p-4">
+        <div id="total-sellers" class="text-3xl font-bold text-indigo-400">0</div>
+        <div class="mt-2 flex items-center gap-2">
+          <i class="fas fa-users text-blue-500"></i>
+          <span class="text-sm text-blue-400">Vendedores activos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="mb-4 px-8 mt-8 text-2xl font-bold text-white">Ranking de Vendedores</h2>
+  
+  <div id="sellers-ranking" class="grid gap-4 px-8 mb-10">
+    <!-- Los vendedores se generarán dinámicamente con JavaScript -->
+  </div>
+  <Footer/>
+</body>
+</html>
+</Layout>
