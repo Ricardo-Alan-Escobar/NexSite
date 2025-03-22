@@ -1,0 +1,491 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="404 - Página no encontrada">
+  <Header />
+  <main class="error-container">
+    <div class="stars-container">
+      <div class="stars stars-1"></div>
+      <div class="stars stars-2"></div>
+      <div class="stars stars-3"></div>
+    </div>
+
+    <div class="content-container">
+      <div class="error-code">
+        <span class="four">4</span>
+        <div class="planet-container">
+          <div class="planet">
+            <div class="crater crater-1"></div>
+            <div class="crater crater-2"></div>
+            <div class="crater crater-3"></div>
+            <div class="crater crater-4"></div>
+            <div class="crater crater-5"></div>
+          </div>
+          <div class="planet-ring"></div>
+        </div>
+        <span class="four">4</span>
+      </div>
+
+      <h1 class="error-title">¡Página no encontrada!</h1>
+      <p class="error-message">
+        Parece que te has aventurado en el espacio desconocido.
+        La página que buscas ha sido abducida o nunca existió.
+      </p>
+
+      <div class="actions">
+        <a href="/" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+            <path d="m12 19-7-7 7-7"></path>
+            <path d="M19 12H5"></path>
+          </svg>
+          Volver al inicio
+        </a>
+        <a href="/sitemap" class="btn btn-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+            <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+            <line x1="3" x2="21" y1="9" y2="9"></line>
+            <line x1="3" x2="21" y1="15" y2="15"></line>
+            <line x1="9" x2="9" y1="3" y2="21"></line>
+            <line x1="15" x2="15" y1="3" y2="21"></line>
+          </svg>
+          Ver mapa del sitio
+        </a>
+      </div>
+
+      <div class="astronaut-container">
+        <div class="astronaut">
+          <div class="astronaut-helmet"></div>
+          <div class="astronaut-body"></div>
+          <div class="astronaut-backpack"></div>
+          <div class="astronaut-leg leg-left"></div>
+          <div class="astronaut-leg leg-right"></div>
+          <div class="astronaut-arm arm-left">
+            <div class="astronaut-hand"></div>
+          </div>
+          <div class="astronaut-arm arm-right">
+            <div class="astronaut-hand"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* Base styles */
+  .error-container {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    overflow: hidden;
+    color: #f9fafb; /* gray-50 */
+  }
+
+  /* Stars background */
+  .stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(2px 2px at var(--star-x) var(--star-y), white, rgba(0, 0, 0, 0));
+    background-size: var(--star-size) var(--star-size);
+  }
+
+  .stars-1 {
+    --star-size: 500px;
+    --star-x: 50px;
+    --star-y: 50px;
+    opacity: 0.3;
+    animation: starsMovement 100s linear infinite;
+  }
+
+  .stars-2 {
+    --star-size: 700px;
+    --star-x: 150px;
+    --star-y: 150px;
+    opacity: 0.4;
+    animation: starsMovement 150s linear infinite reverse;
+  }
+
+  .stars-3 {
+    --star-size: 900px;
+    --star-x: 250px;
+    --star-y: 250px;
+    opacity: 0.5;
+    animation: starsMovement 200s linear infinite;
+  }
+
+  /* Content container */
+  .content-container {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    text-align: center;
+  }
+
+  /* 404 code styling */
+  .error-code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .four {
+    color: #f9fafb;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: pulse 4s ease-in-out infinite alternate;
+  }
+
+  /* Planet styling */
+  .planet-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 0.5rem;
+  }
+
+  .planet {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #4f46e5, #7c3aed);
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
+    overflow: hidden;
+    animation: rotate 20s linear infinite;
+  }
+
+  .planet-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 160%;
+    height: 40px;
+    margin-left: -80%;
+    margin-top: -20px;
+    border-radius: 50%;
+    border: 8px solid rgba(255, 255, 255, 0.2);
+    transform: rotateX(75deg);
+  }
+
+  .crater {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+  }
+
+  .crater-1 {
+    width: 30px;
+    height: 30px;
+    top: 20px;
+    left: 25px;
+  }
+
+  .crater-2 {
+    width: 20px;
+    height: 20px;
+    top: 50px;
+    left: 60px;
+  }
+
+  .crater-3 {
+    width: 35px;
+    height: 35px;
+    top: 70px;
+    left: 25px;
+  }
+
+  .crater-4 {
+    width: 15px;
+    height: 15px;
+    top: 30px;
+    left: 70px;
+  }
+
+  .crater-5 {
+    width: 25px;
+    height: 25px;
+    top: 60px;
+    left: 15px;
+  }
+
+  /* Text styling */
+  .error-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #4f46e5, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+
+  .error-message {
+    font-size: 1.25rem;
+    color: #d1d5db; /* gray-300 */
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+
+  /* Action buttons */
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background: linear-gradient(to right, #4f46e5, #7c3aed);
+    color: white;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+  }
+
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: #f9fafb;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  /* Astronaut styling */
+  .astronaut-container {
+    position: absolute;
+    bottom: -80px;
+    right: -80px;
+    width: 200px;
+    height: 200px;
+    animation: float 8s ease-in-out infinite;
+    opacity: 0.8;
+  }
+
+  .astronaut {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .astronaut-helmet {
+    position: absolute;
+    top: 40px;
+    left: 70px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: 4px solid #4f46e5;
+  }
+
+  .astronaut-body {
+    position: absolute;
+    top: 90px;
+    left: 60px;
+    width: 80px;
+    height: 100px;
+    border-radius: 40px;
+    background: #f9fafb;
+  }
+
+  .astronaut-backpack {
+    position: absolute;
+    top: 100px;
+    left: 40px;
+    width: 40px;
+    height: 70px;
+    border-radius: 10px;
+    background: #4f46e5;
+  }
+
+  .astronaut-leg {
+    position: absolute;
+    width: 20px;
+    height: 60px;
+    background: #f9fafb;
+    border-radius: 10px;
+  }
+
+  .leg-left {
+    top: 180px;
+    left: 70px;
+    transform: rotate(10deg);
+  }
+
+  .leg-right {
+    top: 180px;
+    left: 110px;
+    transform: rotate(-10deg);
+  }
+
+  .astronaut-arm {
+    position: absolute;
+    width: 20px;
+    height: 60px;
+    background: #f9fafb;
+    border-radius: 10px;
+  }
+
+  .arm-left {
+    top: 100px;
+    left: 40px;
+    transform: rotate(-20deg);
+  }
+
+  .arm-right {
+    top: 100px;
+    left: 140px;
+    transform: rotate(20deg);
+  }
+
+  .astronaut-hand {
+    position: absolute;
+    bottom: -10px;
+    left: -5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #f9fafb;
+  }
+
+  /* Animations */
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(0.95);
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) rotate(5deg);
+    }
+    50% {
+      transform: translateY(-30px) rotate(-5deg);
+    }
+  }
+
+  @keyframes starsMovement {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 10000px 5000px;
+    }
+  }
+
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .error-code {
+      font-size: 6rem;
+    }
+
+    .planet-container {
+      width: 90px;
+      height: 90px;
+    }
+
+    .error-title {
+      font-size: 2rem;
+    }
+
+    .error-message {
+      font-size: 1rem;
+    }
+
+    .astronaut-container {
+      bottom: -60px;
+      right: -60px;
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .error-code {
+      font-size: 4rem;
+    }
+
+    .planet-container {
+      width: 70px;
+      height: 70px;
+    }
+
+    .actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .astronaut-container {
+      opacity: 0.4;
+    }
+  }
+</style>
