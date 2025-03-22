@@ -1,0 +1,346 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+---
+
+<Layout title="¡Gracias por tu mensaje!">
+	<Header/>
+	
+
+    <div class="thank-you-container">
+        <div class="card-container">
+          <!-- Animated background elements -->
+          <div class="bg-blob bg-blob-1"></div>
+          <div class="bg-blob bg-blob-2"></div>
+      
+          <!-- Main card -->
+          <div class="card">
+            <div class="card-content">
+              <!-- SVG Illustration -->
+              <div class="svg-container">
+                <svg
+                  width="180"
+                  height="120"
+                  viewBox="0 0 180 120"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="floating-svg"
+                >
+                  <!-- Envelope base -->
+                  <rect
+                    x="30"
+                    y="30"
+                    width="120"
+                    height="80"
+                    rx="4"
+                    class="envelope-base"
+                  />
+                  
+                  <!-- Envelope flap -->
+                  <path
+                    d="M30 34L90 70L150 34"
+                    class="envelope-flap"
+                  />
+                  
+                  <!-- Heart -->
+                  <path
+                    d="M90 60C90 60 80 50 70 50C60 50 55 60 55 65C55 75 70 85 90 95C110 85 125 75 125 65C125 60 120 50 110 50C100 50 90 60 90 60Z"
+                    class="heart"
+                  />
+                  
+                  <!-- Sparkles -->
+                  <circle cx="60" cy="40" r="2" class="sparkle sparkle-1" />
+                  <circle cx="120" cy="40" r="2" class="sparkle sparkle-2" />
+                  <circle cx="90" cy="30" r="2" class="sparkle sparkle-3" />
+                </svg>
+              </div>
+      
+              <div class="text-content">
+                <h1>¡Gracias por tu mensaje!</h1>
+                <p>Hemos recibido tu mensaje correctamente. Nos pondremos en contacto contigo lo antes posible.</p>
+              </div>
+      
+              <div class="buttons">
+                <a href="/" class="btn btn-outline">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="m12 19-7-7 7-7"></path>
+                    <path d="M19 12H5"></path>
+                  </svg>
+                  Volver al inicio
+                </a>
+                
+                <a href="/#Contactanos" class="btn btn-gradient">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="m22 2-7 20-4-9-9-4Z"></path>
+                    <path d="M22 2 11 13"></path>
+                  </svg>
+                  Enviar otro mensaje
+                </a>
+              </div>
+            </div>
+      
+            <!-- Bottom decoration -->
+            <div class="card-footer"></div>
+          </div>
+        </div>
+      </div>
+
+
+	<Footer/>
+</Layout>
+
+<style>
+    /* Base styles */
+    .thank-you-container {
+      min-height: 100vh;
+      width: 100%;
+      background: linear-gradient(to bottom right, #111827, #030712); /* gray-900 to gray-950 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      color: #f9fafb; /* gray-50 for text */
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+  
+    .card-container {
+      position: relative;
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+  
+    /* Background blobs */
+    .bg-blob {
+      position: absolute;
+      z-index: -1;
+      width: 16rem;
+      height: 16rem;
+      border-radius: 9999px;
+      opacity: 0.1;
+      filter: blur(3rem);
+    }
+  
+    .bg-blob-1 {
+      background-color: #4f46e5; /* indigo-600 */
+      top: -50%;
+      left: -20%;
+      animation: blob1 8s infinite alternate;
+    }
+  
+    .bg-blob-2 {
+      background-color: #be185d; /* rose-700 */
+      bottom: -30%;
+      right: -10%;
+      animation: blob2 7s infinite alternate;
+    }
+  
+    /* Card styles */
+    .card {
+      background-color: #1f2937; /* gray-800 */
+      border-radius: 1rem;
+      overflow: hidden;
+      width: 100%;
+      max-width: 28rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+      animation: scaleIn 0.5s ease-out 0.2s both;
+    }
+  
+    .card-content {
+      padding: 2rem;
+    }
+  
+    .card-footer {
+      height: 0.5rem;
+      background: linear-gradient(to right, #be185d, #120ed0); /* indigo-600 to rose-700 */
+    }
+  
+    /* SVG styles */
+    .svg-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      animation: fadeInDown 0.7s ease-out 0.3s both;
+    }
+  
+    .floating-svg {
+      animation: float 3s ease-in-out infinite;
+    }
+  
+    .envelope-base {
+      fill: #374151; /* gray-700 */
+      stroke: #6366f1; /* indigo-500 */
+      stroke-width: 2;
+      animation: fadeIn 0.5s ease-out 0.5s both;
+    }
+  
+    .envelope-flap {
+      stroke: #6366f1; /* indigo-500 */
+      stroke-width: 2;
+      fill: #4b5563; /* gray-600 */
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
+      animation: drawLine 1s ease-out 0.8s forwards;
+    }
+  
+    .heart {
+      fill: #ec4899; /* pink-500 */
+      transform-origin: center;
+      animation: scaleIn 0.5s ease-out 1.5s both;
+    }
+  
+    .sparkle {
+      fill: #fcd34d; /* amber-300 */
+    }
+  
+    .sparkle-1 {
+      animation: sparkle 2.5s ease-out 2s infinite;
+    }
+  
+    .sparkle-2 {
+      animation: sparkle 2.5s ease-out 2.2s infinite;
+    }
+  
+    .sparkle-3 {
+      animation: sparkle 2.5s ease-out 2.4s infinite;
+    }
+  
+    /* Text styles */
+    .text-content {
+      animation: fadeInUp 0.5s ease-out 0.7s both;
+    }
+  
+    h1 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      color: #f9fafb; /* gray-50 */
+    }
+  
+    p {
+      text-align: center;
+      color: #d1d5db; /* gray-300 */
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+  
+    /* Button styles */
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      animation: fadeIn 0.5s ease-out 1s both;
+    }
+  
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1.25rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+  
+    .btn-outline {
+      border: 1px solid #4b5563; /* gray-600 */
+      color: #e5e7eb; /* gray-200 */
+      background-color: transparent;
+    }
+  
+    .btn-outline:hover {
+      background-color: #374151; /* gray-700 */
+    }
+  
+    .btn-gradient {
+      background: linear-gradient(to right, #4f46e5, #be185d); /* indigo-600 to rose-700 */
+      color: white;
+      border: none;
+    }
+  
+    .btn-gradient:hover {
+      background: linear-gradient(to right, #4338ca, #9d174d); /* indigo-700 to rose-800 */
+    }
+  
+    .icon {
+      width: 1rem;
+      height: 1rem;
+    }
+  
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  
+    @keyframes fadeInDown {
+      from { 
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to { 
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    @keyframes fadeInUp {
+      from { 
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to { 
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    @keyframes scaleIn {
+      from { 
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to { 
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+  
+    @keyframes blob1 {
+      0% { 
+        transform: scale(1) translate(0, 0);
+      }
+      100% { 
+        transform: scale(1.2) translate(30px, -30px);
+      }
+    }
+  
+    @keyframes blob2 {
+      0% { 
+        transform: scale(1) translate(0, 0);
+      }
+      100% { 
+        transform: scale(1.1) translate(-20px, 20px);
+      }
+    }
+  
+    @keyframes drawLine {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  
+    @keyframes sparkle {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+  </style>

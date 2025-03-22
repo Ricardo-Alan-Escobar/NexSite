@@ -1,5 +1,36 @@
 ---
+import confetti from "canvas-confetti";
+
+const lanzarConfeti = () => {
+  confetti({
+    particleCount: 100,
+    spread: 70,
+    origin: { y: 0.6 },
+  });
+};
+
+// Esperar a que el DOM esté listo
+setTimeout(() => {
+  if (typeof window !== "undefined") {
+    const button = document.getElementById("confetti-btn");
+    if (button) {
+      button.addEventListener("click", (event) => {
+        event.preventDefault(); // Evita que el formulario se envíe inmediatamente
+        lanzarConfeti();
+
+        // Opcional: Enviar el formulario después de un pequeño retraso
+        setTimeout(() => {
+          button.closest("form")?.submit();
+        }, 500);
+      });
+    } else {
+      console.warn("No se encontró el botón con ID 'confetti-btn'");
+    }
+  }
+}, 100);
 ---
+
+
 
 <style>
   /* Animación de entrada general */
@@ -80,7 +111,7 @@
         </p>
       </div>
 
-      <form name="contacto" method="POST" data-netlify="true" class="bg-white shadow-lg rounded-lg p-6 w-full max-w-lg space-y-4">
+      <form name="contacto" method="POST" action="/Gracias" data-netlify="true" class="bg-white shadow-lg rounded-lg p-6 w-full max-w-lg space-y-4">
         <input type="hidden" name="form-name" value="contacto">
         <div>
           <label for="name" class="block text-sm text-start font-medium text-gray-700">Nombre</label>
@@ -106,7 +137,7 @@
           <textarea name="message" id="message" rows="4" placeholder="Detalla los requisitos de tu proyecto para asesorarte mejor." required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500"></textarea>
         </div>
 
-        <button type="submit" class="w-full bg-blue-600 text-white font-medium py-2 px-4 rounded-md cursor-pointer hover:bg-blue-700 transition-all duration-300 btn-hover">
+        <button type="submit" id="confetti-btn" class="w-full bg-blue-600 text-white font-medium py-2 px-4 rounded-md cursor-pointer hover:bg-blue-700 transition-all duration-300 btn-hover">
           Enviar Mensaje
         </button>
       </form>
