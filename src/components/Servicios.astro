@@ -1,11 +1,11 @@
 ---
 const services = [
-  { icon: "laptop", title: "Web Development", description: "Creamos aplicaciones web dinámicas y con capacidad de respuesta utilizando los últimos marcos y tecnologías. Desde sitios web sencillos hasta plataformas web complejas, ofrecemos soluciones que atraen a los usuarios y generan resultados.." },
-  { icon: "smartphone", title: "Desarrollo Movil", description: "Desarrollamos aplicaciones móviles nativas y multiplataforma que brindan una experiencia de usuario excepcional en dispositivos iOS y Android. Creamos aplicaciones móviles que se destacan en un mercado competitivo." },
-  { icon: "globe", title: "Soluciones en la nube", description: "Infraestructura y servicios en la nube escalables y seguros diseñados para optimizar el rendimiento y reducir los costos. Te ayudamos a aprovechar todo el potencial de la computación en la nube." },
-  { icon: "code", title: "Desarrollo de software personalizado", description: "Soluciones de software a medida diseñadas para abordar los desafíos y requisitos específicos de su negocio. Desarrollamos software que crece con su negocio." },
-  { icon: "git-branch", title: "Desarrollo e integración de API", description: "Creación de API robustas e integración perfecta de servicios de terceros para ampliar la funcionalidad de su aplicación y conectarse con sus sistemas existentes." },
-  { icon: "cpu", title: "Inteligencia artificial y aprendizaje automático", description: "Implementar soluciones inteligentes que analicen datos, aprendan patrones y realicen predicciones para brindarle a su empresa una ventaja competitiva en el panorama digital.." },
+  { icon: "laptop", title: "Desarrollo Web", description: "Creamos aplicaciones web dinámicas y responsivas con las últimas tecnologías. Desde sitios informativos hasta plataformas avanzadas, ofrecemos soluciones que generan impacto." },
+  { icon: "camera", title: "Instalación de Cámaras de Seguridad", description: "Ofrecemos instalación profesional de sistemas de videovigilancia, asegurando la protección de hogares y negocios con tecnología de punta." },
+  { icon: "megaphone", title: "Agencia de Marketing Digital", description: "Impulsamos tu marca con estrategias efectivas de marketing digital, incluyendo SEO, publicidad en redes sociales y gestión de contenido." },
+  { icon: "smartphone", title: "Desarrollo Móvil", description: "Diseñamos aplicaciones nativas y multiplataforma para iOS y Android, brindando experiencias de usuario fluidas y optimizadas para cualquier dispositivo." },
+  { icon: "globe", title: "Soluciones en la Nube", description: "Implementamos infraestructura en la nube segura y escalable para optimizar el rendimiento y reducir costos, permitiéndote operar sin limitaciones." },
+  { icon: "cpu", title: "Inteligencia artificial y aprendizaje automático", description: "Implementar soluciones inteligentes que analicen datos, aprendan patrones y realicen predicciones para brindarle a su empresa una ventaja competitiva en el panorama digital.." }
 ];
 ---
 
@@ -20,6 +20,20 @@ const services = [
               <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
               <line x1="2" y1="20" x2="22" y2="20"></line>
             )}
+             {service.icon === "camera" && (
+             <>
+               <rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect>
+               <circle cx="12" cy="12" r="3"></circle>
+               <path d="M8 5l2-2h4l2 2"></path>
+             </>
+           )}
+           {service.icon === "megaphone" && (
+              <>
+                <path d="M3 11v2"></path>
+                <path d="M12 5v14"></path>
+                <path d="M15 7h4a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-4l-6 3V4l6 3z"></path>
+              </>
+            )}
             {service.icon === "smartphone" && (
               <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
               <line x1="12" y1="18" x2="12" y2="18"></line>
@@ -28,16 +42,6 @@ const services = [
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="2" y1="12" x2="22" y2="12"></line>
               <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-            )}
-            {service.icon === "code" && (
-              <polyline points="16 18 22 12 16 6"></polyline>
-              <polyline points="8 6 2 12 8 18"></polyline>
-            )}
-            {service.icon === "git-branch" && (
-              <line x1="6" y1="3" x2="6" y2="15"></line>
-              <circle cx="18" cy="6" r="3"></circle>
-              <circle cx="6" cy="18" r="3"></circle>
-              <path d="M18 9a9 9 0 0 1-9 9"></path>
             )}
             {service.icon === "cpu" && (
               <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
@@ -55,7 +59,7 @@ const services = [
           <h3 class="text-xl font-bold text-white">{service.title}</h3>
           <p class="text-gray-500">{service.description}</p>
           <a href="/Servicios" class="text-blue-500 hover:underline font-medium inline-flex items-center">
-            Learn More
+            Saber más
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 h-4 w-4">
               <polyline points="9 18 15 12 9 6"></polyline>
             </svg>

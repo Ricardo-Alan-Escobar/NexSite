@@ -101,7 +101,43 @@
         </p>
       </div>
 
-      <form name="contacto" method="POST" action="/Gracias" data-netlify="true" class="bg-white shadow-lg rounded-lg p-6 w-full max-w-lg space-y-4">
+      <div class="w-full flex justify-center">
+
+        <div class="hidden md:flex flex-col items-stretch bg-gradient-to-br from-blue-950 via-gray-900 to-blue-800 text-white shadow-lg w-4/12 rounded-tl-lg rounded-bl-lg p-6">
+          <h1 class="text-4xl my-4 font-semibold text-start">Informacion de <span class="text-green-400"> contacto</span></h1>
+          <p class="text-start text-sm">Escríbenos y con gusto nos pondremos en contacto contigo a la brevedad. Estamos aquí para atender tus dudas y ofrecerte la mejor asistencia posible.</p>
+        
+          <div class="w-full mt-10">
+            <p class="text-start p-2 py-3"><i class="fa-regular fa-envelope text-green-400 pr-1"></i> info.nexsite@gmail.com</p>
+            <p class="text-start p-2"><i class="fa-solid fa-mobile-screen-button text-green-400 pr-1"></i> +55 444 558 3374</p>
+            <p class="text-start p-2"><i class="fa-solid fa-phone-flip text-green-400 pr-1"></i> +55 444 558 3374</p>
+          </div>
+        
+          <span class="inline-flex mt-auto">
+            <a href="https://www.facebook.com/share/19q72cLHDD/?mibextid=wwXIfr" class="text-gray-300 hover:text-blue-500">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+              </svg>
+            </a>
+            <a href="https://x.com/nex_site39262?s=11&t=TewyuqwWFHxBYzU7ejabgg" class="ml-3 text-gray-300 hover:text-blue-300">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/info.nexsite?igsh=NHJyODhsZDM5bG93 " class="ml-3 text-gray-300 hover:text-orange-500">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+              </svg>
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=5214445583374&text=Buen%20d%C3%ADa%2C%20%C2%BFMe%20podr%C3%ADa%20dar%20m%C3%A1s%20informaci%C3%B3n%3F%20" class="ml-3 text-gray-300 hover:text-green-500">
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+            </a>
+          </span>
+        </div>
+
+        <form name="contacto" method="POST" action="/Gracias" data-netlify="true" class="bg-white shadow-lg rounded-tr-lg rounded-br-lg p-6 w-full max-w-lg space-y-4">
+
         <input type="hidden" name="form-name" value="contacto">
         <div>
           <label for="name" class="block text-sm text-start font-medium text-gray-700">Nombre</label>
@@ -131,7 +167,7 @@
           Enviar Mensaje
         </button>
       </form>
-      
+    </div>
       <!-- Elemento decorativo inferior -->
       <div class="mt-8">
         <div class="h-1 w-24 bg-gradient-to-r from-blue-500/0 via-blue-500 to-blue-500/0 rounded-full"></div>
