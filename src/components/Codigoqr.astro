@@ -1,0 +1,214 @@
+---
+const qrSteps = [
+  {
+    number: "01",
+    title: "QR Safety Rider",
+    icon: "fa-qrcode",
+    description:
+      "Un código QR adherido al casco del motociclista que permite acceso rápido a información vital en caso de emergencia. Diseñado para salvar vidas cuando cada segundo cuenta.",
+    image: "https://i.ibb.co/nsXKMPhn/casco-1.png",
+    tags: ["Seguro", "Rápido", "Privado"],
+  },
+  {
+    number: "02",
+    title: "Acceso inicial protegido",
+    icon: "fa-lock",
+    description:
+      "Al escanear el QR, el sistema informa que la información está protegida y solicita un código de seguridad adicional antes de mostrar cualquier dato sensible.",
+    image: "https://i.ibb.co/4ZTMVBqR/codigo-2.png",
+    tags: ["Privacidad", "Control", "Protección"],
+  },
+  {
+    number: "03",
+    title: "Código oculto en la motocicleta",
+    icon: "fa-motorcycle",
+    description:
+      "El código de seguridad se encuentra oculto estratégicamente en la motocicleta, garantizando que solo alguien presente en el lugar del accidente pueda continuar.",
+    image: "https://i.ibb.co/VRJfw5P/codigo.png",
+    tags: ["Físico", "Presencial", "Seguro"],
+  },
+  {
+    number: "04",
+    title: "Ficha técnica de emergencia",
+    icon: "fa-notes-medical",
+    description:
+      "Una vez validado el código, se desbloquea la ficha técnica con datos críticos como contacto de emergencia, tipo de sangre, alergias y observaciones médicas.",
+    image: "https://i.ibb.co/23n6FMsN/informacion.png",
+    tags: ["Salud", "Emergencia", "Tiempo real"],
+  },
+];
+---
+
+
+
+ <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  </head>
+<section id="EmergencyQR" class="w-full py-16 bg-blue-50">
+  <div class="container mx-auto px-4 md:px-6">
+
+    
+    <div class="flex justify-center mb-4">
+     <div
+  class="patent-badge flex items-center gap-2 rounded-full
+         px-4 py-1.5 text-xs sm:text-sm md:text-base
+         text-white font-semibold shadow-xl border border-blue-300
+         whitespace-nowrap"
+>
+  🛡️ Tecnología con patente en trámite
+</div>
+    </div>
+ 
+    <!-- Header -->
+    <div class="text-center mb-10">
+       
+      <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl">
+        QR de
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">
+          Emergencia
+        </span>
+        para Motociclistas
+      </h2>
+      
+      <p class="mx-auto max-w-[800px] text-gray-500 md:text-xl mt-2">
+        Información vital accesible en segundos, sin comprometer la privacidad.
+      </p>
+    </div>
+
+    <!-- Pasos -->
+    <div class="flex flex-col gap-24">
+      {qrSteps.map((step, index) => {
+  const isEven = index % 2 !== 0;
+
+  return (
+    <div class="qr-step grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+
+      <div
+        class={`qr-card order-1 ${isEven ? "md:order-2" : "md:order-1"}`}
+      >
+        <div class="flex items-center gap-3 mb-4 md:mb-8">
+          <div class="qr-icon">
+            <i class={`fa-solid ${step.icon}`}></i>
+          </div>
+          <div><span class="text-blue-500 font-semibold tracking-wider">
+            PASO {step.number}
+          </span>
+           <h3 class="text-xl md:text-2xl font-bold text-blue-900">
+            {step.title}
+          </h3></div>
+          
+        </div>
+
+       
+
+        <p class="mb-4 md:mb-6 text-sm md:text-base">
+          {step.description}
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+          {step.tags.map(tag => (
+            <span class="qr-tag">
+              <i class="fa-solid fa-check"></i> {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div
+        class={`flex justify-center order-2 ${isEven ? "md:order-1" : "md:order-2"}`}
+      >
+        <img
+          src={step.image}
+          alt={step.title}
+        
+        />
+      </div>
+
+    </div>
+  );
+})}
+
+    </div>
+  </div>
+</section>
+
+
+<style>
+/* Animaciones */
+.qr-step {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.qr-step.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card estilo cápsula */
+.qr-card {
+  background: #eff6ff;
+  padding: 1.25rem;          /* mobile */
+}
+
+@media (min-width: 768px) {
+  .qr-card {
+    padding: 2rem;           /* desktop */
+  }
+}
+
+
+.qr-icon {
+  background: #2563eb;
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.qr-tag {
+  background: #e0edff;
+  color: #1d4ed8;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.qr-image {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.qr-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.patent-badge {
+  background: linear-gradient(90deg, #1d4ed8, #3b82f6);
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const steps = document.querySelectorAll(".qr-step");
+
+  const reveal = () => {
+    const trigger = window.innerHeight * 0.85;
+    steps.forEach(step => {
+      if (step.getBoundingClientRect().top < trigger) {
+        step.classList.add("visible");
+      }
+    });
+  };
+
+  window.addEventListener("scroll", reveal);
+  reveal();
+});
+</script>
+
