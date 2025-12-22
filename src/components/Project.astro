@@ -3,17 +3,23 @@ import { Image } from "astro:assets";
 import Proventis from "../assets/Proyectos/Proventis.png";
 import Maquirsa from "../assets/Proyectos/Maquirsa.png";
 import Massey from "../assets/Proyectos/masseyapp.jpeg";
-import Vsilva from "../assets/Proyectos/vsilva.png";
+import Vsilva from "../assets/Proyectos/vsilva.png"; 
 import Neuuni from "../assets/Proyectos/neuuni.png";
 import Tarjeta from "../assets/Proyectos/Tarjeta.png";
+import Vacaciones from "../assets/Proyectos/Vacaciones.png";
+import Mavepo from "../assets/Proyectos/Mavepo.png";
+import KFC from "../assets/Proyectos/KFC.png";
 
 const projects = [
+  { title: "KFC", description: "Sistema de canje de vales para las sucursales de kfc en S.L.P. Escaneo con QR cada vale, verifica si el vale ya fue canjeado, duplicado o sin canjear, registra el uso del vale y queda inhabilitado.", image: KFC, href: "kfc-sistema-de-vales.netlify.app" },
   { title: "Maquirsa", description: "Desarrollo de pagína para constructora con diversos servicios a nivel nacional.", image: Maquirsa, href: "https://grupomaquirsa.netlify.app" },
   { title: "Tarjeta Digital", description: "Tarjeta interactiva de presentación que facilita el contacto en un solo clic, además de proporcionar información directa.", image: Tarjeta, href: "https://tarjetadigitalsandra.netlify.app" },
-  { title: "Vsilva", description: "Pagína para empresa de tecnología enfocada a soluciones con redes e instalaciones.", image: Vsilva, href: "https://vsilva.netlify.app/" },
+  { title: "Mavepo", description: "Pagína para empresa Agricola enfocada a venta de tractores. Distribuidor oficial Massey Fegurson", image: Mavepo, href: "https://mavepo.netlify.app/" },
   { title: "Universidad Neuuni", description: "Pagína para alumnos de una universidad dedicada a clases en linea, donde contiene documentacion del uso de la plataforma.", image: Neuuni, href: "https://docs.neuunieverest.com" },
   { title: "Social Media 'Proventis'", description: "Aplicación social para empresas con seguimiento de ticketsy capacitación continua ademas del seguimiento de permisos.", image: Proventis, href: "https://github.com/Ricardo-Alan-Escobar/Proventis" },
   { title: "Sistema gestor de facturas", description: "Aplicación que convierte archivos xml en masa a archivo Xsl; filtra y hace el conteo de facturas catalogandolas por su CFDI.", image: Massey, href: "https://github.com/Ricardo-Alan-Escobar/GrupoMaquirsa" },
+  { title: "Aplicación de vacaciones", description: "Aplicación de gestion de vacaciones para una empresa de construcción. Gestión de roles Admin, User, Moderator y creación de usuarios y reportes.", image: Vacaciones, href: "https://nexsite.com.mx/vacaciones" },
+  { title: "Vsilva", description: "Empresa dedicada a soluciones tecnológicas.", image: Vsilva, href: "https://vsilva-dev.netlify.app" },
 ];
 ---
 <head>
